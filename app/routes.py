@@ -38,3 +38,17 @@ def get_weather():
     )
     return response.json()
 
+
+@proxy_bp.route("/location/reverse", methods=["GET"])
+def get_location_from_lat_lon():
+    lat_query = request.args.get("lat")
+    lon_query = request.args.get("lon")
+    if not lat_query or not lon_query:
+        return {"message": "must provide lat and lon parameters"}
+
+    response = requests.get(
+        "https://us1.locationiq.com/v1/reverse.php",
+        params={"lat": lat_query, "lon": lon_query, "key": location_key, "format": "json"}
+    )
+
+    return jsonify(response.json())
