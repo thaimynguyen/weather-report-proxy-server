@@ -32,5 +32,4 @@ The Weather Report proxy server is to be used with the [Weather Report web app p
 |--|--|--|
 |`GET` `/location`| `q` | Free-form query string to search for. For `Weather Report`, this should be the city name. |
 |`GET` `/weather` |`lat` & `lon`|Geographical coordinates (latitude, longitude)|
-
-
+|`GET` `/location/reverse` |`lat` & `lon`| Get info of a location from its latitude, longitude|
